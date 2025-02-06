@@ -7,7 +7,6 @@
 
 ### other ###
 target/
-/src/main/
 /out/
 /META-INF/git
 log.log
