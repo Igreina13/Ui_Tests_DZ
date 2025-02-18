@@ -9,12 +9,6 @@ public class Assert_Logs {
     private WebDriver driver = null;
     private Logger logger = null;
 
-//    //конструктор
-//    public Logs (WebDriver driver, Logger logger) {
-//        this.driver = driver;
-//        this.logger = logger;
-//    }
-
     //дефолтный конструктор
     public Assert_Logs(){};
     public void logs(boolean condition, String message, Logger logger, String currentBrowser) {

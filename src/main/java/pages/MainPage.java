@@ -3,32 +3,30 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class MainPage extends AbsPages{
+public class MainPage extends AbsPages {
 
-        public MainPage(WebDriver driver) {
-            super(driver, "/training.html");
-        }
+    public MainPage(WebDriver driver) {
+        super(driver, "/training.html");
+    }
 
-        //обозначаем локаторы нужных нам объектов
-        private By textInputId = By.id("textInput");
-        private By closeModalId = By.id("closeModal");
-        private By myModalId = By.id("myModal");
-        private By openModalBtnId = By.id("openModalBtn");
-        private By inputNameId = By.id("name");
-        private By inputEmailId = By.id("email");
-        private By messageBoxId = By.id("messageBox");
-        private By thisFormId = By.id("sampleForm");
-        private By submitBtnCss = By.cssSelector("#sampleForm button");
-        private By hideBtnId = By.id("toggleMessage");
+    //обозначаем локаторы нужных нам объектов
+    private By textInputId = By.id("textInput");
+    private By closeModalId = By.id("closeModal");
+    private By myModalId = By.id("myModal");
+    private By openModalBtnId = By.id("openModalBtn");
+    private By inputNameId = By.id("name");
+    private By inputEmailId = By.id("email");
+    private By messageBoxId = By.id("messageBox");
+    private By submitBtnCss = By.cssSelector("#sampleForm button");
 
-//Создаем методы
+    //Создаем методы
     //Метод ввода текста
-    public void writeSomeTextIntoInput (String someText) {
-        driver.findElement(textInputId).sendKeys(someText);
+    public void writeSomeTextIntoInput(String someText) {
+        inputText(someText, textInputId);
     }
 
     //Метод получения значения поля textInputId
-    public String getTextFromInput () {
+    public String getTextFromInput() {
         return driver.findElement(textInputId).getAttribute("value");
     }
 
@@ -54,25 +52,21 @@ public class MainPage extends AbsPages{
 
     //Метод для ввода someName в поле inputNameId
     public void writeIntoInputName(String someName) {
-        driver.findElement(inputNameId).sendKeys(someName);
+        inputText(someName, inputNameId);
     }
 
     //Метод для ввода someEmail в поле inputEmailId
     public void writeIntoInputEmail(String someEmail) {
-        driver.findElement(inputEmailId).sendKeys(someEmail);
-    }
-    //Метод отправляющий форму
-    public void submitForm(){
-        driver.findElement(thisFormId).submit();
+        inputText(someEmail, inputEmailId);
     }
 
     //Метод отправляющий форму с кликом на кнопку "Отправить"
-    public void clickForSubmitForm(){
+    public void clickForSubmitForm() {
         driver.findElement(submitBtnCss).click();
     }
 
     //Метод получающий текст в messageBoxId
-    public String getTextValueOfMessageBox(){
+    public String getTextValueOfMessageBox() {
         return driver.findElement(messageBoxId).getText();
     }
 
@@ -81,19 +75,4 @@ public class MainPage extends AbsPages{
         return getTextValueOfMessageBox().matches("(.*)" + someName + "(.*)" + someEmail + "(.*)");
     }
 
-    //Метод для клика кнопки hideBtnId
-    public void clickHideMessageBox() {
-        driver.findElement(hideBtnId).click();
-    }
-
-    //Метод очищающий поле inputNameId
-    public void clearInputName() {
-        driver.findElement(inputNameId).clear();
-    }
-
-    //Метод очищающий поле inputEmailId
-    public void clearInputEmail() {
-        driver.findElement(inputEmailId).clear();
-    }
-
-    }
+}

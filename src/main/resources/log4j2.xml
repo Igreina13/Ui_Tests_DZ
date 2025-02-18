@@ -9,15 +9,15 @@
     </Properties>
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="${LOG_PATTERN}" />
+            <PatternLayout pattern="${LOG_PATTERN}"/>
         </Console>
         <File name="file" fileName="src/main/java/logs/log.log">
-            <PatternLayout pattern="${LOG_PATTERN}" />
+            <PatternLayout pattern="${LOG_PATTERN}"/>
         </File>
     </Appenders>
     <Loggers>
         <Root level="info" additivity="false">
-            <AppenderRef ref="console" />
+            <AppenderRef ref="console"/>
             <AppenderRef ref="file"/>
         </Root>
     </Loggers>

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.MainPage;
 import org.apache.logging.log4j.Logger;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class Kiosk_Tests {
@@ -21,7 +22,7 @@ public class Kiosk_Tests {
     private Assert_Logs logs;
 
     @BeforeAll
-    public static void init(){
+    public static void init() {
         webDriverFactory.webDriverManagerSetup();
     }
 
@@ -45,7 +46,7 @@ public class Kiosk_Tests {
 
     @Test
     @DisplayName("Домашняя работа №2: Модальное окно")
-    void ifModalShowAndHideIsCorrect()  {
+    void ifModalShowAndHideIsCorrect() {
 
         //видимость до открытия
         boolean invisibleBeforeOpening = mainPage.isInvisibleMyModal();
@@ -60,17 +61,17 @@ public class Kiosk_Tests {
 
         String browser = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
         assertAll(
-                () -> logs.logs( invisibleBeforeOpening,
+                () -> logs.logs(invisibleBeforeOpening,
                         "ifModalShowAndHideIsCorrect > invisibleBeforeOpening",
                         log,
                         browser),
 
-                () -> logs.logs( visibleAfterOpening,
+                () -> logs.logs(visibleAfterOpening,
                         "ifModalShowAndHideIsCorrect > visibleAfterOpening",
                         log,
                         browser),
 
-                () -> logs.logs( invisibleAfterClosing,
+                () -> logs.logs(invisibleAfterClosing,
                         "ifModalShowAndHideIsCorrect > invisibleAfterClosing",
                         log,
                         browser)

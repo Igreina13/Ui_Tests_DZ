@@ -9,6 +9,7 @@ import pages.MainPage;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class Fullscreen_Tests {
@@ -22,19 +23,19 @@ public class Fullscreen_Tests {
     private Assert_Logs logs;
 
     @BeforeAll
-    public static void init(){
+    public static void init() {
         webDriverFactory.webDriverManagerSetup();
     }
 
     @BeforeEach
     public void createDriver() {
-            String mode = "maximize";
-            driver = webDriverFactory.create(mode);
+        String mode = "maximize";
+        driver = webDriverFactory.create(mode);
 
-            mainPage = new MainPage(driver);
-            logs = new Assert_Logs();
-            mainPage.open();
-        }
+        mainPage = new MainPage(driver);
+        logs = new Assert_Logs();
+        mainPage.open();
+    }
 
     /**
      * Задание №3
@@ -42,12 +43,12 @@ public class Fullscreen_Tests {
      * Перейти на ресурс
      * В форму ввести Имя и Почту, нажать отправить
      * В поле динамическое сообщение (на зеленом фоне) появится сообщение в формате:
-     Форма отправлена с именем: фыв и email: asdf@sdfg.rt
+     * Форма отправлена с именем: фыв и email: asdf@sdfg.rt
      */
 
     @Test
     @DisplayName("Домашняя работа №3: Заполнение и отправление формы")
-    void ifTextGotValuesFromForm()  {
+    void ifTextGotValuesFromForm() {
 
         String someName = "Nastya";
         String someEmail = "Nastya@test.com";
@@ -61,11 +62,11 @@ public class Fullscreen_Tests {
         String browser = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
 
         assertAll(
-                () -> logs.logs( ifDivContainsValuesWhenDisplayed,
+                () -> logs.logs(ifDivContainsValuesWhenDisplayed,
                         "ifTextGotValuesFromForm > ifDivContainsValuesWhenDisplayed: "
                                 + someName + " " + someEmail,
-                log,
-                browser));
+                        log,
+                        browser));
     }
 
     @AfterEach

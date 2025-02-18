@@ -24,10 +24,18 @@ public class WebDriverFactory {
                 //Если начинается с "-" передаём в options
                 if (mode.charAt(0) == '-') options.addArguments(mode);
                 driver = new FirefoxDriver(options);
+
+                if (mode.equals("maximize")) {
+                    driver.manage().window().maximize();
+                }
             }
             case "chrome" -> {
                 ChromeOptions options = new ChromeOptions();
                 if (mode.charAt(0) == '-') options.addArguments(mode);
+
+                if (mode.equals("maximize")) {
+                    options.addArguments("start-maximized");
+                }
                 driver = new ChromeDriver(options);
             }
             default -> {
@@ -35,10 +43,6 @@ public class WebDriverFactory {
             }
         }
 
-        //если не используем аргументы с "-" (для firefox)
-        switch (mode) {
-            case "maximize" -> driver.manage().window().maximize();
-        }
         //неявное ожидание
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
         return driver;

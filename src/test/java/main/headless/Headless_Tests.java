@@ -21,7 +21,7 @@ public class Headless_Tests {
     private Assert_Logs logs;
 
     @BeforeAll
-    public static void init(){
+    public static void init() {
         webDriverFactory.webDriverManagerSetup();
     }
 
@@ -45,7 +45,7 @@ public class Headless_Tests {
 
     @Test
     @DisplayName("Домашняя работа №1: Ввод текста в поле")
-    void ifEqualsInputText()  {
+    void ifEqualsInputText() {
         //создаю строку someText и присваиваю ей значение
         String someText = "ОТУС";
         System.out.println(someText);
@@ -53,7 +53,7 @@ public class Headless_Tests {
         mainPage.writeSomeTextIntoInput(someText);
         String textValue = mainPage.getTextFromInput();
         String browser = ((RemoteWebDriver) driver).getCapabilities().getBrowserName();
-        logs.logs( someText.equals(textValue), "ifEqualsInputText: " + someText, logger, browser);
+        logs.logs(someText.equals(textValue), "ifEqualsInputText: " + someText, logger, browser);
     }
 
     @AfterEach

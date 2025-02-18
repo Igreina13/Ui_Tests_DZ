@@ -25,6 +25,7 @@ public class Waiters {
             return false;
         }
     }
+
     public boolean waitForElementVisible(WebElement element) {
         return waitForCondition(ExpectedConditions.visibilityOf(element));
     }
